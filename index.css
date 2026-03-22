@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+body {
+    background-image: url("/meusite/img/meufundo.jpg");
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    background-color: black;
+}
+
+.cabecalho {
+    width: min(90%, 900px);
+    display: flex;
+    justify-content: center;
+    background-color: rgb(250, 244, 234);
+    border: clamp(1px, 0.2vw, 2px) solid rgba(181, 66, 5, 0.7);
+    border-radius: clamp(10px, 2vw, 20px);
+    padding: clamp(5px, 1vw, 10px);
+    margin: clamp(10px, 2vw, 20px) auto;
+    gap: clamp(20px, 3vw, 45px);
+    font-family: "Lexend", sans-serif;
+}
+
+a:hover {
+    border-bottom: clamp(1px, 0.2vw, 2px) solid rgb(200, 130, 92);
+}
+
+.hero {
+    min-height: 92vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h1 {
+    color: black;
+    font-size: clamp(80px, 13vw, 260px);
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    pointer-events: none;
+    font-weight: bolder;
+    text-align: center;
+    letter-spacing: clamp(-25px, -1.5vw, -10px);
+}
+
+.hero p {
+    font-family: "Lexend", sans-serif;
+    font-size: clamp(20px, 3vw, 50px);
+    pointer-events: none;
+    line-height: clamp(10px, 1vw, 20px);
+}
+
+.img {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.img img {
+    width: clamp(250px, 25vw, 470px);
+    height: auto;
+    max-height: 700px;
+    display: block;
+}
+
+span {
+    color: rgb(133, 39, 5);
+}
+
+hr {
+    border: none;
+    height: clamp(1px, 0.2vw, 2px);
+    background-color: white;
+    width: min(50%, 800px);
+    margin: clamp(20px, 4vw, 40px) auto;
+    margin-top: clamp(-20px, -2vw, -40px);
+}
+
+.icones {
+    cursor: pointer;
+}
+
+.tela2 {
+    min-height: 100vh;
+    background-color: black;
+    background-image: url("/meusite/img/elementos.jpg");
+    background-size: cover;
+    background-position: center;
+
+    border-top-left-radius: clamp(15px, 2vw, 30px);
+    border-top-right-radius: clamp(15px, 2vw, 30px);
+}
+
+
+.tela2 h3 {
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    font-size: clamp(30px, 6vw, 80px);
+    font-family: "Lexend", sans-serif;
+    padding: clamp(30px, 5vw, 80px);
+    pointer-events: none;
+}
+
+.tela2 p {
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    font-size: clamp(30px, 6vw, 30px);
+    font-family: "Lexend", sans-serif;
+    padding: clamp(30px, 5vw, 80px);
+    pointer-events: none;
+    text-align: center;
+    max-width: clamp(300px, 80%, 800px);
+    margin: 0 auto;
+}
+
+
+.about {
+    color: rgb(255, 98, 0);
+}
+
+.eu {
+    font-size: clamp(14px, 1.5vw, 20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tela3 {
+    min-height: 30vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: clamp(40px, 8vw, 100px);
+    background-image: url("/meusite/img/Design\ sem\ nome.jpg");
+    background-size: cover;
+    background-position: center;
+
+}
+
+.tela3 p {
+    color: white;
+    font-family: "Lexend", sans-serif;
+    font-size: clamp(12px, 1vw, 16px);
+}
+
+.linguagens {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(20px, 4vw, 60px);
+    margin-bottom: clamp(10px, 2vw, 20px);
+}
+
+.linguagens i {
+    font-size: clamp(40px, 6vw, 80px);
+    color: white;
+    transition: 0.3s;
+}
+
+.linguagens i:hover {
+    transform: scale(1.2) translateY(-10px);
+    color: orangered;
+}
+
+.feito {
+    pointer-events: none;
+}
+
+.tela4 {
+    height: 100vh;
+    background-image: url("/meusite/img/Black\ and\ Orange\ Modern\ Brand\ Guidelines\ Presentation.jpg");
+}
+
+.tela4 h3 {
+    color: white;
+    font-family: "Lexend", sans-serif;
+    font-size: clamp(12px, 1vw, 16px);
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    font-size: clamp(30px, 6vw, 80px);
+    font-family: "Lexend", sans-serif;
+    padding: clamp(30px, 5vw, 80px);
+    pointer-events: none;
+    text-align: center;
+    max-width: clamp(300px, 80%, 800px);
+    margin: 0 auto;
+}
+
+.projetos {
+    width: min(90%, 1100px);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: clamp(20px, 4vw, 40px);
+    margin-top: clamp(50px, 6vw, 100px);
+}
+
+.card-projeto {
+    width: clamp(260px, 30vw, 350px);
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: clamp(12px, 1.5vw, 20px);
+    overflow: hidden;
+    backdrop-filter: blur(clamp(5px, 1vw, 10px));
+    border: clamp(1px, 0.15vw, 2px) solid rgba(255, 255, 255, 0.1);
+    transition: 0.35s;
+    cursor: pointer;
+}
+
+.card-projeto:hover {
+    transform: translateY(clamp(-6px, -1vw, -10px)) scale(1.03);
+    border: clamp(1px, 0.15vw, 2px) solid rgb(181, 66, 5);
+    box-shadow: 0 clamp(8px, 1.5vw, 15px) clamp(20px, 3vw, 40px) rgba(0, 0, 0, 0.6);
+}
+
+.card-projeto img {
+    width: 100%;
+    height: clamp(160px, 18vw, 200px);
+    object-fit: cover;
+}
+
+.card-info {
+    padding: clamp(15px, 2vw, 20px);
+    text-align: center;
+    font-family: "Lexend", sans-serif;
+}
+
+.card-info h4 {
+    color: white;
+    font-size: clamp(18px, 1.6vw, 22px);
+    margin-bottom: clamp(8px, 1vw, 10px);
+}
+
+.card-info p {
+    color: rgb(200, 200, 200);
+    font-size: clamp(12px, 1vw, 14px);
+    margin-bottom: clamp(10px, 1.5vw, 15px);
+}
+
+.card-info a {
+    display: inline-block;
+    padding: clamp(6px, 0.8vw, 8px) clamp(14px, 1.5vw, 18px);
+    border-radius: clamp(6px, 1vw, 10px);
+    background: rgb(181, 66, 5);
+    color: white;
+    font-size: clamp(12px, 1vw, 14px);
+    transition: 0.3s;
+}
+
+.card-info a:hover {
+    background: rgb(220, 100, 40);
+}
