@@ -12,7 +12,7 @@ a {
 }
 
 body {
-    background-image: url("/meusite/img/meufundo.jpg");
+    background-image: url("img/meufundo.jpg"); /* corrigido */
     background-repeat: no-repeat;
     overflow-x: hidden;
     background-color: black;
@@ -96,14 +96,13 @@ hr {
 .tela2 {
     min-height: 100vh;
     background-color: black;
-    background-image: url("/meusite/img/elementos.jpg");
+    background-image: url("img/elementos.jpg"); /* corrigido */
     background-size: cover;
     background-position: center;
 
     border-top-left-radius: clamp(15px, 2vw, 30px);
     border-top-right-radius: clamp(15px, 2vw, 30px);
 }
-
 
 .tela2 h3 {
     color: rgb(255, 255, 255);
@@ -128,7 +127,6 @@ hr {
     margin: 0 auto;
 }
 
-
 .about {
     color: rgb(255, 98, 0);
 }
@@ -148,10 +146,9 @@ hr {
     justify-content: center;
     align-items: center;
     padding-top: clamp(40px, 8vw, 100px);
-    background-image: url("/meusite/img/Design\ sem\ nome.jpg");
+    background-image: url("img/Design sem nome.jpg"); /* corrigido */
     background-size: cover;
     background-position: center;
-
 }
 
 .tela3 p {
@@ -185,18 +182,16 @@ hr {
 
 .tela4 {
     height: 100vh;
-    background-image: url("/meusite/img/Black\ and\ Orange\ Modern\ Brand\ Guidelines\ Presentation.jpg");
+    background-image: url("img/Black and Orange Modern Brand Guidelines Presentation.jpg"); /* corrigido */
 }
 
 .tela4 h3 {
     color: white;
     font-family: "Lexend", sans-serif;
     font-size: clamp(12px, 1vw, 16px);
-    color: rgb(255, 255, 255);
     display: flex;
     justify-content: center;
     font-size: clamp(30px, 6vw, 80px);
-    font-family: "Lexend", sans-serif;
     padding: clamp(30px, 5vw, 80px);
     pointer-events: none;
     text-align: center;
