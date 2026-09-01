@@ -81,6 +81,10 @@
         return false;
     });
 
+    function show(item) {
+        item.setAttribute("data-visible", "");
+    }
+
     if ("IntersectionObserver" in window) {
         var revealObserver = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
@@ -88,15 +92,34 @@
                    show it right away, it will never intersect again. */
                 var passed = entry.boundingClientRect.bottom < 0;
                 if (entry.isIntersecting || passed) {
-                    entry.target.setAttribute("data-visible", "");
+                    show(entry.target);
                     revealObserver.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.15, rootMargin: "0px 0px -60px 0px" });
 
         revealItems.forEach(function (item) { revealObserver.observe(item); });
+
+        /* A jump scroll (scrollbar drag, End key) can skip the threshold
+           crossing entirely and leave a section stuck invisible. Sweep the
+           leftovers once the scrolling settles; the list only shrinks. */
+        var sweepTimer;
+        window.addEventListener("scroll", function () {
+            if (!revealItems.length) return;
+            clearTimeout(sweepTimer);
+            sweepTimer = setTimeout(function () {
+                revealItems = revealItems.filter(function (item) {
+                    if (!item.hasAttribute("data-visible")) {
+                        if (item.getBoundingClientRect().bottom > 0) return true;
+                        show(item);
+                    }
+                    revealObserver.unobserve(item);
+                    return false;
+                });
+            }, 150);
+        }, { passive: true });
     } else {
-        revealItems.forEach(function (item) { item.setAttribute("data-visible", ""); });
+        revealItems.forEach(show);
     }
 
     /* Highlight the nav link of the section in view. */
