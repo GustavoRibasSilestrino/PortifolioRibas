@@ -140,6 +140,87 @@
         sections.forEach(function (section) { sectionObserver.observe(section); });
     }
 
+
+    /* Cursor follower: a ring that trails the pointer and reacts to anything
+       clickable. Mouse-like pointers only, and skipped when the user asked
+       for reduced motion. The native cursor is never hidden, so this stays
+       pure decoration. */
+    var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+    var calmMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    if (finePointer.matches && !calmMotion.matches) {
+        var cursor = document.createElement("div");
+        cursor.className = "cursor";
+        cursor.setAttribute("aria-hidden", "true");
+        cursor.appendChild(document.createElement("span"));
+        document.body.appendChild(cursor);
+
+        var pointerX = 0;
+        var pointerY = 0;
+        var ringX = 0;
+        var ringY = 0;
+        var ticking = false;
+
+        function drawCursor() {
+            ringX += (pointerX - ringX) * 0.18;
+            ringY += (pointerY - ringY) * 0.18;
+            cursor.style.transform = "translate3d(" + ringX + "px, " + ringY + "px, 0)";
+
+            /* Stop the loop once it has caught up: no idle rAF burning battery. */
+            if (Math.abs(pointerX - ringX) > 0.1 || Math.abs(pointerY - ringY) > 0.1) {
+                requestAnimationFrame(drawCursor);
+            } else {
+                ticking = false;
+            }
+        }
+
+        function isInteractive(node) {
+            return node instanceof Element && node.closest("a, button, [role='button']");
+        }
+
+        document.addEventListener("pointermove", function (event) {
+            if (event.pointerType && event.pointerType !== "mouse") return;
+
+            pointerX = event.clientX;
+            pointerY = event.clientY;
+
+            /* First move: drop the ring straight onto the pointer instead of
+               flying in from the top-left corner. */
+            if (!cursor.hasAttribute("data-active")) {
+                ringX = pointerX;
+                ringY = pointerY;
+                cursor.setAttribute("data-active", "");
+            }
+
+            if (!ticking) {
+                ticking = true;
+                requestAnimationFrame(drawCursor);
+            }
+        }, { passive: true });
+
+        document.addEventListener("pointerover", function (event) {
+            if (isInteractive(event.target)) cursor.setAttribute("data-hover", "");
+        }, { passive: true });
+
+        document.addEventListener("pointerout", function (event) {
+            if (!isInteractive(event.relatedTarget)) cursor.removeAttribute("data-hover");
+        }, { passive: true });
+
+        document.addEventListener("pointerdown", function () {
+            cursor.setAttribute("data-press", "");
+        }, { passive: true });
+
+        document.addEventListener("pointerup", function () {
+            cursor.removeAttribute("data-press");
+        }, { passive: true });
+
+        /* Fade out when the pointer leaves the window. */
+        document.documentElement.addEventListener("pointerleave", function () {
+            cursor.removeAttribute("data-active");
+            cursor.removeAttribute("data-hover");
+        });
+    }
+
     /* Footer year. */
     var year = document.querySelector("[data-year]");
     if (year) {

@@ -209,19 +209,8 @@ h3 {
     letter-spacing: -0.01em;
 }
 
-.brand-mark {
-    display: grid;
-    place-items: center;
-    width: 38px;
-    height: 38px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, var(--accent), var(--accent-deep));
-    color: #fff;
-    font-size: 14px;
-}
-
 .brand-name {
-    font-size: 16px;
+    font-size: 17px;
 }
 
 .nav {
@@ -433,7 +422,6 @@ h3 {
 
 .hero-title .outline {
     color: transparent;
-    -webkit-text-stroke: clamp(1px, 0.16vw, 2px) var(--text);
     background: linear-gradient(120deg, var(--accent) 0%, var(--accent-soft) 50%, var(--accent) 100%);
     -webkit-background-clip: text;
     background-clip: text;
@@ -481,42 +469,6 @@ h3 {
     margin-top: 4px;
     font-family: var(--font-display);
     font-size: clamp(18px, 2vw, 24px);
-}
-
-.scroll-cue {
-    position: absolute;
-    left: 50%;
-    bottom: 26px;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    font-size: 11px;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--muted);
-}
-
-.scroll-cue span {
-    width: 1px;
-    height: 44px;
-    background: linear-gradient(to bottom, transparent, var(--accent));
-    animation: cue 2.2s ease-in-out infinite;
-}
-
-@keyframes cue {
-
-    0%,
-    100% {
-        opacity: 0.25;
-        transform: scaleY(0.6);
-    }
-
-    50% {
-        opacity: 1;
-        transform: scaleY(1);
-    }
 }
 
 /* ============================================================
@@ -655,6 +607,11 @@ h3 {
     gap: clamp(20px, 3vw, 32px);
 }
 
+/* Com um unico card a grade esticava ele na largura toda da pagina. */
+.projects:has(> :only-child) {
+    max-width: 560px;
+}
+
 .card {
     display: flex;
     flex-direction: column;
@@ -775,7 +732,7 @@ h3 {
 
 .skills {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 300px));
     gap: clamp(16px, 2.5vw, 24px);
 }
 
@@ -806,7 +763,7 @@ h3 {
     transform: scale(1.08);
 }
 
-.skills h3 {
+.skills h4 {
     margin: 16px 0 6px;
     font-size: 18px;
 }
@@ -815,6 +772,44 @@ h3 {
     font-size: 14px;
     color: var(--muted);
     line-height: 1.6;
+}
+
+.skill-group + .skill-group {
+    margin-top: clamp(34px, 5vw, 54px);
+}
+
+.skill-group-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 14px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--font-display);
+    font-size: clamp(17px, 2vw, 21px);
+    letter-spacing: -0.01em;
+}
+
+.skill-group-title span {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--muted);
+}
+
+.skill-kind {
+    display: inline-block;
+    margin-top: 2px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 106, 26, 0.35);
+    background: rgba(255, 106, 26, 0.1);
+    color: var(--accent-soft);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
 }
 
 /* Contact -------------------------------------------------- */
@@ -877,6 +872,52 @@ h3 {
 
 .to-top:hover {
     color: var(--accent);
+}
+
+/* ============================================================
+   Cursor follower
+   ============================================================ */
+
+/* Only a decoration: the native cursor stays visible, so losing this
+   never costs the user the ability to see where they are pointing. */
+
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 900;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s var(--ease);
+    will-change: transform;
+}
+
+.cursor[data-active] {
+    opacity: 1;
+}
+
+.cursor span {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin: -16px 0 0 -16px;
+    border: 1px solid rgba(255, 106, 26, 0.55);
+    border-radius: 50%;
+    /* Scale, never width/height: keeps it off the layout path. */
+    transition: transform var(--dur-hover) var(--ease),
+        background var(--dur-hover) var(--ease),
+        border-color var(--dur-hover) var(--ease);
+}
+
+.cursor[data-hover] span {
+    transform: scale(1.7);
+    border-color: var(--accent);
+    background: rgba(255, 106, 26, 0.12);
+}
+
+.cursor[data-press] span {
+    transform: scale(0.8);
+    background: rgba(255, 106, 26, 0.22);
 }
 
 /* ============================================================
@@ -955,12 +996,13 @@ html[data-js] .stagger-pop[data-visible] > * {
 
 @media (max-width: 780px) {
 
-    .brand-name {
-        display: none;
-    }
-
     .nav-toggle {
         display: grid;
+    }
+
+    /* No celular o teto de 300px deixava sobra a direita; aqui o card enche. */
+    .skills {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 
     .socials {
@@ -1032,5 +1074,9 @@ html[data-js] .stagger-pop[data-visible] > * {
     html[data-js] .stagger-pop > * {
         opacity: 1;
         animation: none !important;
+    }
+
+    .cursor {
+        display: none;
     }
 }
