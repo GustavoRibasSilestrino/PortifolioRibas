@@ -5,98 +5,306 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description"
+        content="Gustavo Ribas - Full Stack developer in training. Portfolio of web projects built with HTML, CSS, JavaScript and Java.">
+    <meta name="theme-color" content="#0a0a0b">
+
+    <title>Gustavo Ribas &mdash; Developer Portfolio</title>
 
     <link rel="stylesheet" href="index.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Space+Grotesk:wght@400;500;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
 
-<body>
+<body id="top">
 
-    <nav id="menu">
+    <a class="skip-link" href="#main">Skip to content</a>
 
-        <div class="cabecalho">
-            <p><a href="#sobremim">About me</a></p>
-            <p><a href="#projetos">Projects</a></p>
-            <p><a href="#habilidades">Skills</a></p>
-            <div class="icones">
-                <a href="https://github.com/Gustavo-Ribas-Silestrino" target="_blank">
-                    <i class="fa-brands fa-github"></i>
-                </a>
+    <header class="site-header" data-header>
+        <div class="container header-inner">
 
-                <a href="https://www.linkedin.com/in/gustavo-ribas-b112ba38b/" target="_blank">
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
+            <a class="brand" href="#top">
+                <span class="brand-mark">GR</span>
+                <span class="brand-name">Gustavo Ribas</span>
+            </a>
 
-                <a href="https://wa.me/15981447035" target="_blank">
-                    <i class="fa-brands fa-whatsapp"></i>
-                </a>
+            <nav class="nav" id="nav" aria-label="Main navigation">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+
+                <ul class="socials">
+                    <li>
+                        <a href="https://github.com/Gustavo-Ribas-Silestrino" target="_blank" rel="noopener"
+                            aria-label="GitHub">
+                            <i class="fa-brands fa-github" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/gustavo-ribas-b112ba38b/" target="_blank" rel="noopener"
+                            aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/15981447035" target="_blank" rel="noopener" aria-label="WhatsApp">
+                            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <button class="nav-toggle" type="button" aria-controls="nav" aria-expanded="false"
+                    aria-label="Open menu" data-nav-toggle>
+                    <span></span>
+                    <span></span>
+                </button>
 
             </div>
 
         </div>
+    </header>
 
-    </nav>
+    <main id="main">
 
-    <section class="hero">
-        <p>i'am <span>Gustavo Ribas</span></p>
-        <h1>designer developer</h1>
-    </section>
+        <section class="hero">
 
-    <section class="tela2" id="sobremim">
-        <h3>About
-            <br>
-            <span class="about">Me</span>
-        </h3>
-        <p>I am a 19-year-old student currently studying
-            Systems Analysis and Development at SENAI in Sorocaba.
-            I am in the process of training to become a Full Stack
-            developer, with knowledge of HTML, CSS, JavaScript, and Java.
-            I am focused on developing my technical skills and gaining
-            practical experience in creating web
-            applications and solutions.</p>
+            <div class="hero-backdrop" aria-hidden="true">
+                <span class="orb orb-a"></span>
+                <span class="orb orb-b"></span>
+                <span class="grid-lines"></span>
+            </div>
+
+            <div class="container hero-inner stagger" data-reveal-on="load">
+
+                <p class="pill">
+                    <span class="pill-dot" aria-hidden="true"></span>
+                    Open to internships &amp; freelance work
+                </p>
+
+                <p class="hero-kicker">I&rsquo;m <span class="accent">Gustavo Ribas</span></p>
+
+                <h1 class="hero-title">
+                    <span class="line">designer</span>
+                    <span class="line outline">developer</span>
+                </h1>
+
+                <p class="hero-sub">
+                    Systems Analysis and Development student at SENAI Sorocaba, training as a Full Stack developer
+                    and building web interfaces that are fast, responsive and clean.
+                </p>
+
+                <div class="hero-cta">
+                    <a class="btn btn-primary" href="#projects">
+                        See my projects <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a class="btn btn-ghost" href="#contact">Get in touch</a>
+                </div>
+
+                <dl class="hero-stats">
+                    <div>
+                        <dt>Age</dt>
+                        <dd>19</dd>
+                    </div>
+                    <div>
+                        <dt>Studying at</dt>
+                        <dd>SENAI Sorocaba</dd>
+                    </div>
+                    <div>
+                        <dt>Stack</dt>
+                        <dd>Front &amp; Back-end</dd>
+                    </div>
+                </dl>
+
+            </div>
+
+            <a class="scroll-cue" href="#about" aria-label="Scroll to the about section">
+                <span aria-hidden="true"></span>
+                scroll
+            </a>
+
+        </section>
+
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track">
+                <span>HTML</span><i>&bull;</i><span>CSS</span><i>&bull;</i><span>JavaScript</span><i>&bull;</i><span>Java</span><i>&bull;</i><span>Responsive
+                    Design</span><i>&bull;</i><span>Git</span><i>&bull;</i><span>HTML</span><i>&bull;</i><span>CSS</span><i>&bull;</i><span>JavaScript</span><i>&bull;</i><span>Java</span><i>&bull;</i><span>Responsive
+                    Design</span><i>&bull;</i><span>Git</span><i>&bull;</i>
+            </div>
         </div>
 
-    </section>
+        <section class="section" id="about">
+            <div class="container">
 
-    <section class="tela4" id="projetos">
-        <h3>PROJECTS</h3>
+                <header class="section-head reveal">
+                    <span class="section-index">01 &mdash; about</span>
+                    <h2>About <span class="accent">me</span></h2>
+                </header>
 
-        <div class="projetos">
+                <div class="about-grid">
 
-            <div class="card-projeto">
-                
-                <div class="card-info">
-                    <h4>Book Sales Website</h4>
-                    <p>Responsive landing page made with HTML, CSS, and JavaScript.</p>
-                    <a href="#">See Project</a>
+                    <div class="about-text reveal">
+                        <p class="lead">
+                            I&rsquo;m a 19-year-old student currently studying Systems Analysis and Development at
+                            SENAI in Sorocaba.
+                        </p>
+                        <p>
+                            I&rsquo;m in the process of training to become a Full Stack developer, with knowledge of
+                            HTML, CSS, JavaScript and Java. My focus right now is on sharpening my technical skills
+                            and gaining practical experience creating web applications and solutions.
+                        </p>
+                        <p>
+                            I like interfaces that feel light to use: clear layouts, smooth motion and code that
+                            still makes sense months later.
+                        </p>
+                    </div>
+
+                    <ul class="about-cards stagger-pop">
+                        <li>
+                            <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+                            <h3>Education</h3>
+                            <p>Systems Analysis and Development &mdash; SENAI, Sorocaba (SP).</p>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-code" aria-hidden="true"></i>
+                            <h3>Focus</h3>
+                            <p>Full Stack development, with a soft spot for front-end and interface design.</p>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-rocket" aria-hidden="true"></i>
+                            <h3>Goal</h3>
+                            <p>Turn study projects into real products and join a team where I can grow fast.</p>
+                        </li>
+                    </ul>
+
                 </div>
 
             </div>
+        </section>
 
+        <section class="section" id="projects">
+            <div class="container">
+
+                <header class="section-head reveal">
+                    <span class="section-index">02 &mdash; work</span>
+                    <h2>Selected <span class="accent">projects</span></h2>
+                </header>
+
+                <div class="projects stagger-pop">
+
+                    <article class="card">
+                        <div class="card-media">
+                            <img src="img/biblioteca.png" alt="Bibliotech book website home page" loading="lazy">
+                        </div>
+                        <div class="card-body">
+                            <h3>Book Sales Website</h3>
+                            <p>Responsive landing page for a digital library, with hero search, catalog sections and
+                                a layout that adapts from mobile to wide screens.</p>
+                            <ul class="tags">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JavaScript</li>
+                            </ul>
+                            <a class="card-link" href="#">
+                                See project <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="card card-soon">
+                        <div class="card-body">
+                            <span class="soon-badge">In progress</span>
+                            <h3>More coming soon</h3>
+                            <p>I&rsquo;m building new projects with Java and JavaScript. Follow my GitHub to see them
+                                the moment they go live.</p>
+                            <a class="card-link" href="https://github.com/Gustavo-Ribas-Silestrino" target="_blank"
+                                rel="noopener">
+                                Visit GitHub <i class="fa-brands fa-github" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="section" id="skills">
+            <div class="container">
+
+                <header class="section-head reveal">
+                    <span class="section-index">03 &mdash; skills</span>
+                    <h2>Tools I <span class="accent">work with</span></h2>
+                </header>
+
+                <ul class="skills stagger-pop">
+                    <li>
+                        <i class="fa-brands fa-html5" aria-hidden="true"></i>
+                        <h3>HTML5</h3>
+                        <p>Semantic, accessible markup.</p>
+                    </li>
+                    <li>
+                        <i class="fa-brands fa-css3-alt" aria-hidden="true"></i>
+                        <h3>CSS3</h3>
+                        <p>Responsive layouts with Flexbox and Grid.</p>
+                    </li>
+                    <li>
+                        <i class="fa-brands fa-js" aria-hidden="true"></i>
+                        <h3>JavaScript</h3>
+                        <p>Interactivity, DOM and browser APIs.</p>
+                    </li>
+                    <li>
+                        <i class="fa-brands fa-java" aria-hidden="true"></i>
+                        <h3>Java</h3>
+                        <p>Object-oriented programming and back-end basics.</p>
+                    </li>
+                </ul>
+
+            </div>
+        </section>
+
+        <section class="section contact" id="contact">
+            <div class="container">
+                <div class="contact-card reveal">
+                    <h2>Let&rsquo;s build <span class="accent">something</span></h2>
+                    <p>Got a project, an opportunity or just want to say hi? I usually answer within a day.</p>
+                    <div class="contact-actions">
+                        <a class="btn btn-primary" href="https://wa.me/15981447035" target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
+                        </a>
+                        <a class="btn btn-ghost" href="https://www.linkedin.com/in/gustavo-ribas-b112ba38b/"
+                            target="_blank" rel="noopener">
+                            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i> LinkedIn
+                        </a>
+                        <a class="btn btn-ghost" href="https://github.com/Gustavo-Ribas-Silestrino" target="_blank"
+                            rel="noopener">
+                            <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>&copy; <span data-year>2026</span> Gustavo Ribas</p>
+            <p>Built with HTML, CSS &amp; JavaScript</p>
+            <a class="to-top" href="#top">Back to top <i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
         </div>
+    </footer>
 
-    </section>
-
-    <section class="tela3" id="habilidades">
-
-        <div class="linguagens">
-            <i class="fa-brands fa-html5"></i>
-            <i class="fa-brands fa-css3-alt"></i>
-            <i class="fa-brands fa-js"></i>
-            <i class="fa-brands fa-java"></i>
-        </div>
-
-        <div class="feito">
-            <p>make for Gustavo Ribas DEV</p>
-        </div>
-
-    </section>
+    <script src="index.js"></script>
 
 </body>
 
